@@ -25,8 +25,8 @@ class LetterCell: UICollectionViewCell {
   }
 
   // MARK: - Public Methods
-  func set(letter: Character) {
-    letterLabel.text = "\(letter)"
+  func set(letter: String) {
+    letterLabel.text = letter
   }
 
   func clearLetter() {
@@ -50,7 +50,23 @@ class LetterCell: UICollectionViewCell {
    */
   func set(style: LetterCellStyle) {
     // START YOUR CODE HERE
-    // ...
+      switch style {
+      case .initial:
+          contentView.backgroundColor = UIColor.black
+          layer.borderColor = UIColor.gray.cgColor
+          
+      case .incorrect:
+          contentView.backgroundColor = UIColor(red: 0.23, green: 0.23, blue: 0.24, alpha: 1.0)
+          layer.borderColor = UIColor(red: 0.23, green: 0.23, blue: 0.24, alpha: 1.0).cgColor
+          
+      case .correctLetterOnly:
+          contentView.backgroundColor = UIColor(red: 0.69, green: 0.63, blue: 0.20, alpha: 1.0)
+          layer.borderColor = UIColor(red: 0.69, green: 0.63, blue: 0.20, alpha: 1.0).cgColor
+          
+      case .correctLetterAndPosition:
+          contentView.backgroundColor = UIColor(red: 0.38, green: 0.55, blue: 0.33, alpha: 1.0)
+          layer.borderColor = UIColor(red: 0.38, green: 0.55, blue: 0.33, alpha: 1.0).cgColor
+      }
     // END YOUR CODE HERE
   }
 }
